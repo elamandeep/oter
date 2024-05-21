@@ -227,6 +227,20 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "830b246a0e5f20af87141b25c173cd1b609bd7779a4617d6ec582abaf90870f3"
 
 [[package]]
+name = "octo"
+version = "0.1.0"
+dependencies = [
+ "clap",
+ "dbase",
+ "indicatif",
+ "serde",
+ "serde_json",
+ "shapefile",
+ "uuid",
+ "walkdir",
+]
+
+[[package]]
 name = "powerfmt"
 version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -245,20 +259,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8ad3d49ab951a01fbaafe34f2ec74122942fe18a3f9814c3268f1bb72042131b"
 dependencies = [
  "unicode-ident",
-]
-
-[[package]]
-name = "quack"
-version = "0.1.0"
-dependencies = [
- "clap",
- "dbase",
- "indicatif",
- "serde",
- "serde_json",
- "shapefile",
- "uuid",
- "walkdir",
 ]
 
 [[package]]

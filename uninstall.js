@@ -27,18 +27,18 @@ if (fs.existsSync(cargoDir)) {
   );
 }
     
-const binp = path.join(cargoDir, "bin", "quack");
+const binp = path.join(cargoDir, "bin", "octo");
 
 if (fs.existsSync(binp)) {
-  console.log("Uninstalling quack...");
-  exec(`cargo uninstall quack`, (error, stdout, stderr) => {
+  console.log("Uninstalling octo...");
+  exec(`cargo uninstall octo`, (error, stdout, stderr) => {
     console.log(stdout);
     if (error || stderr) {
       console.log(error || stderr);
     }
   });
 } else {
-  console.log("quack not found skipping!");
+  console.log("octo not found skipping!");
 }
     
     

@@ -5,7 +5,7 @@ const { exec } = require("child_process");
 const controller = typeof AbortController !== "undefined" ? new AbortController() : { abort: () => {}, signal: typeof AbortSignal !== "undefined" ? new AbortSignal() : undefined };
 const { signal } = controller;
 
-exec("quack", { signal }, (error, stdout, stderr) => {
+exec("octo", { signal }, (error, stdout, stderr) => {
   stdout && console.log(stdout);
   stderr && console.error(stderr);
   if (error !== null) {

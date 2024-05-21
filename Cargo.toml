@@ -1,9 +1,9 @@
 [package]
-name = "quack"
+name = "octo"
 version = "0.1.0"
 edition = "2021"
 authors = ["Aman Deep<deep.aman6174@gmail.com>"]
-description = "Quack is a command-line tool designed to help users seamlessly convert spatial data between various formats."
+description = "octo is a command-line tool designed to help users seamlessly convert spatial data between various formats."
 readme = "README.md"
 license = "MIT"
 license-file = "LICENSE.txt"

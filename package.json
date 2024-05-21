@@ -1,7 +1,7 @@
 {
-  "name": "quack",
+  "name": "octo",
   "version": "0.1.0",
-  "description": "Quack is a command-line tool designed to help users seamlessly convert spatial data between various formats.",
+  "description": "octo is a command-line tool designed to help users seamlessly convert spatial data between various formats.",
   "main": "start.js",
   "directories": {
     "test": "tests"
