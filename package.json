@@ -11,9 +11,9 @@
     "postinstall": "node ./pre-install.js",
     "uninstall": "node ./uninstall.js"
   },
-  "keywords": [],
+  "keywords": ["geospatial"],
   "author": "Aman Deep<deep.aman6174@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "files": [
     "pre-install.js",
     "start.js",

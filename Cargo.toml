@@ -5,7 +5,10 @@ edition = "2021"
 authors = ["Aman Deep<deep.aman6174@gmail.com>"]
 description = "Quack is a command-line tool designed to help users seamlessly convert spatial data between various formats."
 readme = "README.md"
-
+license = "MIT"
+license-file = "LICENSE.txt"
+keywords = ["geospatial"]
+categories = ["command-line-utilities"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
