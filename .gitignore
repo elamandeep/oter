@@ -1,1 +1,5 @@
 /target
+./pre-install.js
+./start.js
+./uninstall.js
+./package.json
