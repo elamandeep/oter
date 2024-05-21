@@ -6,7 +6,7 @@ authors = ["Aman Deep<deep.aman6174@gmail.com>"]
 description = "Quack is a command-line tool designed to help users seamlessly convert spatial data between various formats."
 readme = "README.md"
 license = "MIT"
-license-file = "LICENSE.txt"
+license-file = "LICENSE"
 keywords = ["geospatial"]
 categories = ["command-line-utilities"]
 
