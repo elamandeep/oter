@@ -3,4 +3,4 @@
 ./start.js
 ./uninstall.js
 ./package.json
-.env
+
