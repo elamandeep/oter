@@ -43,9 +43,10 @@ impl ShapeFile {
                             dbf_vec.push(cloned_path);
                         }
                         Some("shx") => {}
+                        Some("prj") => {}
                         _ => {
-                            eprintln!("File doesn't supported");
-                            exit(0)
+                            //Todo fix this issue
+                            
                         }
                     }
                 }
@@ -318,7 +319,7 @@ mod shapefile_test {
     #[test]
     fn test_shapefile() {
         let mut shp = ShapeFile::new();
-        shp.populate(Path::new("./layers"));
-        shp.to_topojson();
+        shp.populate(Path::new("./test"));
+        shp.to_geojson();
     }
 }

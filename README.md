@@ -1,6 +1,6 @@
 # Oter - GIS Data Conversion Tool
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/elamandeep/oter/ci.yml?branch=main)](https://github.com/elamandeep/oter/actions)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/elamandeep/oter/CI.yml?branch=main)](https://github.com/elamandeep/oter/actions)
 [![PyPI version](https://img.shields.io/pypi/v/oter)](https://pypi.org/project/oter/)
 [![License](https://img.shields.io/github/license/elamandeep/oter)](https://github.com/elamandeep/oter/blob/main/LICENSE)
 
@@ -39,7 +39,11 @@ You can install Oter via pip for Python  for Rust.
 
 - Convert Shapefile to GeoJSON
 
-> oter --shpgeojson ./folder_name
+> Note:- To convert a shapefile to another format, you must first unzip the compressed folder  containing the shapefile. Use the unzipped folder, which includes all the necessary files, for the conversion process.
+
+```bash
+ oter --shpgeojson ./folder_name
+ ```
 
 
 # Development
