@@ -1,12 +1,11 @@
 [package]
 name = "oter"
-version = "0.2.0"
+version = "0.2.1"
 edition = "2021"
 authors = ["Aman Deep<deep.aman6174@gmail.com>"]
 description = "oter is a command-line tool designed to help users seamlessly convert spatial data between various formats."
 readme = "README.md"
 license = "MIT"
-license-file = "LICENSE.txt"
 keywords = ["geospatial"]
 categories = ["command-line-utilities"]
 
