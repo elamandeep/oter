@@ -30,7 +30,8 @@ pub fn parse_dbase_value(field_value: FieldValue) -> Value {
 
 pub fn save(extension: &str, content: String) {
     let id = Uuid::new_v4();
-    let file_name = format!("{}.{}", id.as_simple().to_string(), extension);
+    let filename = id.as_simple().to_string();
+    let file_name = format!("{}.{}", &filename[0..12], extension);
     let mut file = fs::File::create(file_name).unwrap();
     file.write_all(content.as_bytes()).unwrap();
 }

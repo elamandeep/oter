@@ -1,6 +1,6 @@
 [package]
 name = "oter"
-version = "0.2.2"
+version = "0.3.0"
 edition = "2021"
 authors = ["Aman Deep<deep.aman6174@gmail.com>"]
 description = "oter is a command-line tool designed to help users seamlessly convert spatial data between various formats."
@@ -19,6 +19,7 @@ serde_json = "1.0"
 shapefile = "0.6.0"
 walkdir = "2.5.0"
 indicatif = "0.16"
+kml = "0.8.5"
 
 [dependencies.uuid]
 version = "1.8.0"

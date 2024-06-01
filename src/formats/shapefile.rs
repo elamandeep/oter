@@ -2,10 +2,7 @@ use crate::utils::utils::{parse_dbase_value, save};
 use dbase::Record;
 use serde_json::{json, to_string_pretty, Map, Value};
 use shapefile::{Shape, ShapeReader};
-use std::{
-    path::{Path, PathBuf},
-    process::exit,
-};
+use std::path::{Path, PathBuf};
 use walkdir::WalkDir;
 
 pub struct ShapeFile {
@@ -46,7 +43,6 @@ impl ShapeFile {
                         Some("prj") => {}
                         _ => {
                             //Todo fix this issue
-                            
                         }
                     }
                 }
@@ -184,7 +180,7 @@ impl ShapeFile {
 
         save("geojson", content);
     }
-
+    #[doc = "convert shapefile into topojson"]
     pub fn to_topojson(&mut self) {
         let mut index: usize = 0;
         let mut id: u32 = 0;
@@ -309,6 +305,85 @@ impl ShapeFile {
 
         save("topojson", content)
     }
+
+    #[doc = "convert shapefile into KML"]
+    pub fn to_kml(&mut self) {
+        let mut kml = String::new();
+
+        kml.push_str(r#"<?xml version="1.0" encoding="UTF-8"?>"#);
+        kml.push_str(r#"<kml xmlns="http://www.opengis.net/kml/2.2">"#);
+        kml.push_str(r#"<Document>"#);
+        println!("{:?}",self.records_vec);
+
+        for shape in &self.shapes_vec {
+            match shape {
+                Shape::NullShape => todo!(),
+                Shape::Point(point) => {
+                    
+                    kml.push_str(&format!(
+                        r#"<Placemark><Point><coordinates>{},{}</coordinates></Point></Placemark>"#,
+                        point.x, point.y
+                    ));
+                }
+                Shape::PointM(point) => {
+                    kml.push_str(&format!(
+                        r#"<Placemark><Point><coordinates>{},{}</coordinates></Point></Placemark>"#,
+                        point.x, point.y
+                    ));
+                }
+                Shape::PointZ(point) => {
+                    kml.push_str(&format!(
+                        r#"<Placemark><Point><coordinates>{},{},{}</coordinates></Point></Placemark>"#,
+                        point.x, point.y, point.z
+                    ));
+                }
+                Shape::Polyline(polyline) => {
+                    kml.push_str("<Placemark><LineString><coordinates>");
+                    for point in polyline.parts() {
+                        kml.push_str(&format!("{},{},0 ", point[0].x, point[0].y));
+                    }
+                    kml.push_str("</coordinates></LineString></Placemark>");
+                }
+                Shape::PolylineM(polyline) => {
+                    kml.push_str("<Placemark><LineString><coordinates>");
+                    for point in polyline.parts() {
+                        kml.push_str(&format!("{},{},0 ", point[0].x, point[0].y));
+                    }
+                    kml.push_str("</coordinates></LineString></Placemark>");
+                }
+                Shape::PolylineZ(polyline) => {
+                    kml.push_str("<Placemark><LineString><coordinates>");
+                    for point in polyline.parts() {
+                        kml.push_str(&format!("{},{},0 ", point[0].x, point[0].y));
+                    }
+                    kml.push_str("</coordinates></LineString></Placemark>");
+                }
+                Shape::Polygon(polygon) => {
+                    kml.push_str("<Placemark><Polygon><outerBoundaryIs><LinearRing><coordinates>");
+                    for rings in polygon.rings() {
+                        for point in rings.points().iter() {
+                            kml.push_str(&format!("{},{},0 ", point.x, point.y));
+                        }
+                    }
+
+                    kml.push_str(
+                        "</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>",
+                    );
+                }
+                Shape::PolygonM(_) => todo!(),
+                Shape::PolygonZ(_) => todo!(),
+                Shape::Multipoint(_) => todo!(),
+                Shape::MultipointM(_) => todo!(),
+                Shape::MultipointZ(_) => todo!(),
+                Shape::Multipatch(_) => todo!(),
+            }
+        }
+        kml.push_str("</Document></kml>");
+
+        save("kml", kml);
+    }
+
+
 }
 
 #[cfg(test)]
@@ -320,6 +395,6 @@ mod shapefile_test {
     fn test_shapefile() {
         let mut shp = ShapeFile::new();
         shp.populate(Path::new("./test"));
-        shp.to_geojson();
+        shp.to_kml();
     }
 }
